@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_chatapp/feature/Home/screen/home.dart';
+import 'package:flutter_firebase_chatapp/features/Home/screen/home.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 

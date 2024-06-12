@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "94140168394",
+    "project_id": "phone-auth-5d21d",
+    "storage_bucket": "phone-auth-5d21d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94140168394:android:6df8db44d9ab8d14b15c33",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94140168394-42rp524v5sn8o7bt7e0s8e1g69k1rjcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyVcaM0fOzPcYLeLPzWUm2umfBBs1tdl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94140168394-42rp524v5sn8o7bt7e0s8e1g69k1rjcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
