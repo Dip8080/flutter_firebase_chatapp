@@ -26,23 +26,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           padding: EdgeInsets.all(10.w),
           child: Column(
             children: <Widget>[
-              RichText(
-                text: TextSpan(
-                    text: 'D',
-                    style: TextStyle(
-                      fontSize: 8.w,
-                      color: Color.fromARGB(255, 241, 98, 76),
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'okan',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 241, 98, 76),
-                              letterSpacing: 1.2,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 8.w))
-                    ]),
-              ),
               SizedBox(height: 3.h),
               Text(
                 'Register',
@@ -55,20 +38,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        // TextFormField(
-                        //   controller: _nameController,
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   decoration: const InputDecoration(
-                        //       prefixIcon: Icon(Icons.person_outline),
-                        //       hintText: 'name'),
-                        //   validator: (String? value) {
-                        //     if (value == null || value.trim().isEmpty) {
-                        //       return 'Enter Your name';
-                        //     }
-                        //     return null;
-                        //   },
-                        // ),
-                        // const SizedBox(height: 16),
                         TextFormField(
                           controller: _emailController,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -128,9 +97,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               });
                               if (_formKey.currentState!.validate()) {
                                 Map<String, dynamic> user = {
-                                  "username": _nameController.text,
-                                  'email': _emailController.text,
-                                  'password': _passwordController.text,
+                                  'email': _emailController.text.trim(),
+                                  'password': _passwordController.text.trim(),
                                 };
                                 print('this is user in widget - ${user}');
                         
@@ -174,7 +142,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _passwordConfirmController.dispose();

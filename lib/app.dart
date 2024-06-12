@@ -1,21 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chatapp/features/Home/screen/home.dart';
+import 'package:flutter_firebase_chatapp/features/auth/auth_provider.dart';
+import 'package:flutter_firebase_chatapp/features/auth/presentation/screen/login.dart';
+import 'package:flutter_firebase_chatapp/features/auth/presentation/screen/register.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatApp extends ConsumerWidget {
   const ChatApp({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
+    final authState = ref.watch(authStateProvider);
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => authState.when(
+            data: (user) => user != null ? Home() : LoginScreen(),
+            loading: () => Center(child: CircularProgressIndicator()),
+            error: (error, stack) => Center(child: Text('Error: $error')),
+          ),
+        ),
+        GoRoute(
+          path: '/register',
+          builder: (context, state) => RegistrationScreen(),
+        ),
+      ],
+    );
     return FlutterSizer(builder: (context, orientation, screenType) {
-      return MaterialApp(
+      return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'ChatApp',
         theme: _lightThemeData(),
         darkTheme: _dartThemeData(),
         themeMode: ThemeMode.system,
-        home: Home(),
+        routerConfig: router,
       );
     });
   }
